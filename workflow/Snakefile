@@ -11,7 +11,7 @@ report: "report/workflow.rst"
 
 # this container defines the underlying OS for each job when using the workflow
 # with --use-conda --use-singularity
-container: "docker://continuumio/miniconda3"
+container: "docker://continuumio/miniconda3:4.4.10"
 
 
 include: "rules/common.smk"
