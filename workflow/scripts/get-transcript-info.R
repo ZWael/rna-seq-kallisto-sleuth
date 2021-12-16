@@ -3,13 +3,17 @@ sink(log)
 sink(log, type="message")
 
 library("biomaRt")
-library("tidyverse")
+library("dplyr")
+library("stringr")
+library("purrr")
+
 
 # this variable holds a mirror name until
 # useEnsembl succeeds ("www" is last, because 
 # of very frequent "Internal Server Error"s)
 mart <- "www"
 rounds <- 0
+print(str_c(snakemake@params[["species"]], "_gene_ensembl"))
 while ( class(mart)[[1]] != "Mart" ) {
   mart <- tryCatch(
     {
@@ -103,5 +107,5 @@ t2g <- t2g %>%
             )
           }
         )
-
+head(t2g)
 write_rds(t2g, file = snakemake@output[[1]], compress = "gz")
