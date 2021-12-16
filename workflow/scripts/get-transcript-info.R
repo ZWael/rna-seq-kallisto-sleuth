@@ -6,6 +6,7 @@ library("biomaRt")
 library("dplyr")
 library("stringr")
 library("purrr")
+library("readr")
 
 
 # this variable holds a mirror name until
