@@ -4,5 +4,5 @@ channels:
 dependencies:
   - r-base =4.1
   - bioconductor-spia =2.46
-  - bioconductor-graphite =1.38
+  - bioconductor-graphite =1.40
   - r-tidyverse =1.3
