@@ -39,7 +39,7 @@ while ( class(mart)[[1]] != "Mart" ) {
       }
       # hop to next mirror
       mart <- switch(mart,
-                     www = "useast"
+                     www = "useast",
                      useast = "uswest",
                      uswest = "asia",
                      asia = {
