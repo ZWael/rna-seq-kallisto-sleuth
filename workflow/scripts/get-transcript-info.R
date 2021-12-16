@@ -8,7 +8,7 @@ library("tidyverse")
 # this variable holds a mirror name until
 # useEnsembl succeeds ("www" is last, because 
 # of very frequent "Internal Server Error"s)
-mart <- "useast"
+mart <- "www"
 rounds <- 0
 while ( class(mart)[[1]] != "Mart" ) {
   mart <- tryCatch(
@@ -39,14 +39,14 @@ while ( class(mart)[[1]] != "Mart" ) {
       }
       # hop to next mirror
       mart <- switch(mart,
+                     www = "useast"
                      useast = "uswest",
                      uswest = "asia",
-                     asia = "www",
-                     www = {
+                     asia = {
                        # wait before starting another round through the mirrors,
                        # hoping that intermittent problems disappear
                        Sys.sleep(30)
-                       "useast"
+                       "www"
                      }
               )
     }
